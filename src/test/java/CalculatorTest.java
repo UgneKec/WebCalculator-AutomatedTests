@@ -83,7 +83,7 @@ public class CalculatorTest {
         Main.selectValueFromDropdownList(By.xpath("//*[@id=\"number\"]/select"), "-");
         Main.clickOnElement(By.xpath("//*[@id=\"number\"]/input[3]"));
         //Tikriname pranesima
-        boolean resultActual = Main.elementTextContainsString(By.tagName("h1"), "Whitelabel Error Page");
+        boolean resultActual = Main.elementTextContainsString(By.xpath("/html/body/h4"), "999 - 998 = 1");
         Assert.assertTrue(resultActual);
     }
     @Test (priority = 6)
@@ -111,7 +111,7 @@ public class CalculatorTest {
         Main.sendKeysToInputField(By.xpath("/html/body/div/form/div/input[1]"), "Testavimas" + Main.counter);
         Main.sendKeysToInputField(By.xpath("/html/body/div/form/div/input[2]"), "testavimas");
         Main.clickOnElement(By.xpath("/html/body/div/form/div/button"));
-        //Nueiname i irasu regostra
+        //Nueiname i irasu registra
         Main.clickOnElement(By.xpath("/html/body/nav/div/ul[1]/li/a"));
         //Ieskome musu sukurto iraso
         boolean resultActual = Main.findRecordInTable(999, 998, "-", 1);
@@ -137,7 +137,8 @@ public class CalculatorTest {
         Main.clickOnElement(By.xpath("/html/body/div/form/div/button"));
         //Nueiname i irasu registra
         Main.clickOnElement(By.xpath("/html/body/nav/div/ul[1]/li/a"));
-
+        //Slenkame iki iraso
+        Main.scrollIntoView(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[1]"));
         //Papsaudziame redaguoti ant paskutinio iraso
         Main.clickOnElement(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[1]"));
         //Suvedame reiksmes i laukus
@@ -162,7 +163,8 @@ public class CalculatorTest {
         Main.clickOnElement(By.xpath("/html/body/div/form/div/button"));
         //Nueiname i irasu registra
         Main.clickOnElement(By.xpath("/html/body/nav/div/ul[1]/li/a"));
-
+        //Slenkame iki iraso
+        Main.scrollIntoView(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[1]"));
         //Papsaudziame redaguoti ant paskutinio iraso
         Main.clickOnElement(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[1]"));
         //Suvedame reiksmes i laukus
@@ -181,7 +183,8 @@ public class CalculatorTest {
         Main.clickOnElement(By.xpath("/html/body/div/form/div/button"));
         //Nueiname i irasu registra
         Main.clickOnElement(By.xpath("/html/body/nav/div/ul[1]/li/a"));
-
+        //Slenkame iki iraso
+        Main.scrollIntoView(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[2]"));
         //Papsaudziame trinti ant paskutinio iraso
         Main.clickOnElement(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[2]"));
         // Pereiname prie alert ir patvirtiname jį
@@ -199,7 +202,8 @@ public class CalculatorTest {
         Main.clickOnElement(By.xpath("/html/body/div/form/div/button"));
         //Nueiname i irasu registra
         Main.clickOnElement(By.xpath("/html/body/nav/div/ul[1]/li/a"));
-
+        //Slenkame iki iraso
+        Main.scrollIntoView(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[2]"));
         //Papsaudziame trinti ant paskutinio iraso
         Main.clickOnElement(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[2]"));
         // Pereiname prie alert ir patvirtiname jį

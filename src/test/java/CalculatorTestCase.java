@@ -95,7 +95,7 @@ public class CalculatorTestCase {
         Main.selectValueFromDropdownList(By.xpath("//*[@id=\"number\"]/select"), "-");
         Main.clickOnElement(By.xpath("//*[@id=\"number\"]/input[3]"));
         //Tikriname pranesima
-        boolean resultActual = Main.elementTextContainsString(By.tagName("h1"), "Whitelabel Error Page");
+        boolean resultActual = Main.elementTextContainsString(By.xpath("/html/body/h4"), "999 - 998 = 1");
         Assert.assertTrue(resultActual);
     }
     @Test (priority = 7)
@@ -115,6 +115,8 @@ public class CalculatorTestCase {
     }
     @Test (priority = 9)
     static void koreguotiIrasa(){
+        //Slenkame iki iraso
+        Main.scrollIntoView(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[1]"));
         //Papsaudziame redaguoti ant paskutinio iraso
         Main.clickOnElement(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[1]"));
         //Suvedame reiksmes i laukus
@@ -134,7 +136,8 @@ public class CalculatorTestCase {
     @Test (priority = 10)
     static void koreguotiIrasaNegatyvusTestas(){
         Main.clickOnElement(By.xpath("/html/body/a"));
-
+        //Slenkame iki iraso
+        Main.scrollIntoView(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[1]"));
         //Papsaudziame redaguoti ant paskutinio iraso
         Main.clickOnElement(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[1]"));
         //Suvedame reiksmes i laukus
@@ -150,7 +153,8 @@ public class CalculatorTestCase {
         Main.browser.get(Main.URL);
         //Nueiname i irasu registra
         Main.clickOnElement(By.xpath("/html/body/nav/div/ul[1]/li/a"));
-
+        //Slenkame iki iraso
+        Main.scrollIntoView(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[2]"));
         //Papsaudziame trinti ant paskutinio iraso
         Main.clickOnElement(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[2]"));
         // Pereiname prie alert ir patvirtiname jį
@@ -162,6 +166,9 @@ public class CalculatorTestCase {
     }
     @Test (priority = 12)
     static void trintiIrasa(){
+        //Slenkame iki iraso
+        Main.scrollIntoView(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[2]"));
+        //Papsaudziame trinti ant paskutinio iraso
         Main.clickOnElement(By.xpath("/html/body/div/table/tbody/tr[last()]/td[5]/a[2]"));
         // Pereiname prie alert ir patvirtiname jį
         Alert alert = Main.browser.switchTo().alert();
